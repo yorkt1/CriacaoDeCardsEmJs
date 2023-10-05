@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #divPainel {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap
+    }
+
+    .cards {
+        border: 1px solid black;
+        width: 223px;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <button onclick="Mostrar()">Pesquisar</button>
+    <div id="divPainel" >
+     
+    </div>
+</body>
+<script>
+
+    let times = [
+        { nome: "Tabajanra", corPrincial: "Amarelo", anoFundacao: "1990" },
+        { nome: "Guarani", corPrincial: " Azul", anoFundacao: "1789" },
+        { nome: "Farrouplha", corPrincial: "Verde", anoFundacao: "1988" },
+        { nome: "Sao Paulo", corPrincial: "Rosa", anoFundacao: "1708" },
+        { nome: "Ibis", corPrincial: "Vermelho", anoFundacao: "1908" },
+    ]
+
+    function Mostrar() {
+
+        times.map((time) => { MostrarTime(time) })
+
+    }
+    function MostrarTime(time) {
+
+        console.log(time);
+
+        let texto = document.createTextNode(time.nome)
+        let nome = document.createElement('h2')
+        nome.appendChild(texto)
+
+        texto = document.createTextNode(time.corPrincial)
+        let cor = document.createElement('p')
+        cor.appendChild(texto)
+
+        texto = document.createTextNode('fundação: ' +  time.anoFundacao)
+        let ano = document.createElement('p')
+        ano.appendChild(texto)
+    
+        let divTime = document.createElement('div')
+        divTime.appendChild(nome)
+        divTime.appendChild(cor)
+        divTime.appendChild(ano)
+
+        divTime.setAttribute("class", "cards");
+        document.getElementById('divPainel').appendChild(divTime)
+
+    }
+
+
+
+
+
+
+
+
+</script>
+
+</html>
